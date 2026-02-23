@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane fitToWidth="true" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.AddEditEntryController"
+            styleClass="root-pane">
+
+    <VBox spacing="14" maxWidth="500">
+        <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+        <!-- Common fields -->
+        <Label text="Entry Type" styleClass="field-label"/>
+        <ComboBox fx:id="typeCombo" maxWidth="Infinity"/>
+
+        <Label text="Title *" styleClass="field-label"/>
+        <TextField fx:id="titleField" promptText="e.g. Gmail" styleClass="input-field"/>
+
+        <HBox spacing="12">
+            <VBox HBox.hgrow="ALWAYS" spacing="4">
+                <Label text="Category" styleClass="field-label"/>
+                <TextField fx:id="categoryField" promptText="e.g. Work" styleClass="input-field"/>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS" spacing="4">
+                <Label text="Tags (comma-separated)" styleClass="field-label"/>
+                <TextField fx:id="tagsField" promptText="personal, email" styleClass="input-field"/>
+            </VBox>
+        </HBox>
+
+        <CheckBox fx:id="favoriteCheck" text="Favourite ★"/>
+
+        <Separator/>
+
+        <!-- ── LOGIN fields ── -->
+        <VBox fx:id="loginPane" spacing="10">
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" promptText="user@example.com" styleClass="input-field"/>
+
+            <Label text="Password" styleClass="field-label"/>
+            <HBox spacing="8">
+                <PasswordField fx:id="passwordField" styleClass="input-field" HBox.hgrow="ALWAYS"/>
+                <Button text="Generate" onAction="#handleGeneratePassword" styleClass="secondary-button"/>
+            </HBox>
+
+            <Label text="URL" styleClass="field-label"/>
+            <TextField fx:id="urlField" promptText="https://example.com" styleClass="input-field"/>
+
+            <Label text="TOTP Secret (optional)" styleClass="field-label"/>
+            <TextField fx:id="totpField" promptText="Base32 secret from the site" styleClass="input-field"/>
+
+            <Label text="Notes" styleClass="field-label"/>
+            <TextArea fx:id="loginNotesArea" prefRowCount="3" styleClass="input-area" wrapText="true"/>
+        </VBox>
+
+        <!-- ── NOTE fields ── -->
+        <VBox fx:id="notePane" spacing="10">
+            <Label text="Note Body" styleClass="field-label"/>
+            <TextArea fx:id="noteBodyArea" prefRowCount="8" styleClass="input-area" wrapText="true"/>
+        </VBox>
+
+        <!-- ── CARD fields ── -->
+        <VBox fx:id="cardPane" spacing="10">
+            <Label text="Cardholder Name" styleClass="field-label"/>
+            <TextField fx:id="cardholderField" styleClass="input-field"/>
+
+            <Label text="Card Number" styleClass="field-label"/>
+            <TextField fx:id="cardNumberField" promptText="0000 0000 0000 0000" styleClass="input-field"/>
+
+            <HBox spacing="12">
+                <VBox HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Expiry (MM/YY)" styleClass="field-label"/>
+                    <TextField fx:id="expiryField" promptText="12/28" styleClass="input-field"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="CVV" styleClass="field-label"/>
+                    <TextField fx:id="cvvField" promptText="000" maxWidth="80" styleClass="input-field"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="PIN (optional)" styleClass="field-label"/>
+                    <TextField fx:id="pinField" promptText="0000" maxWidth="80" styleClass="input-field"/>
+                </VBox>
+            </HBox>
+
+            <Label text="Notes" styleClass="field-label"/>
+            <TextArea fx:id="cardNotesArea" prefRowCount="3" styleClass="input-area" wrapText="true"/>
+        </VBox>
+
+        <!-- ── IDENTITY fields ── -->
+        <VBox fx:id="identityPane" spacing="10">
+            <Label text="Full Name" styleClass="field-label"/>
+            <TextField fx:id="fullNameField" styleClass="input-field"/>
+
+            <Label text="Date of Birth" styleClass="field-label"/>
+            <TextField fx:id="dobField" promptText="YYYY-MM-DD" styleClass="input-field"/>
+
+            <Label text="Passport Number" styleClass="field-label"/>
+            <TextField fx:id="passportField" styleClass="input-field"/>
+
+            <Label text="National ID Number" styleClass="field-label"/>
+            <TextField fx:id="nationalIdField" styleClass="input-field"/>
+
+            <Label text="Notes" styleClass="field-label"/>
+            <TextArea fx:id="identityNotesArea" prefRowCount="3" styleClass="input-area" wrapText="true"/>
+        </VBox>
+
+        <!-- Error + actions -->
+        <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true"/>
+
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Button text="Cancel" onAction="#handleCancel" styleClass="secondary-button"/>
+            <Button text="Save"   onAction="#handleSave"   defaultButton="true" styleClass="primary-button"/>
+        </HBox>
+    </VBox>
+</ScrollPane>

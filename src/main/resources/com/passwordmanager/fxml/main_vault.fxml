@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.MainVaultController"
+            styleClass="root-pane">
+
+    <!-- ── Toolbar ── -->
+    <top>
+        <ToolBar styleClass="main-toolbar">
+            <Label text="🔐" styleClass="toolbar-logo"/>
+            <TextField fx:id="searchField" promptText="Search entries…" prefWidth="260"
+                       styleClass="search-field"/>
+            <Separator orientation="VERTICAL"/>
+            <Button text="+ Add Entry"  onAction="#handleAddEntry"  styleClass="primary-button"/>
+            <Button text="🛡 Audit"     onAction="#handleOpenAudit" styleClass="secondary-button"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⚙ Settings"  onAction="#handleSettings"  styleClass="icon-button"/>
+            <Button text="🔒 Lock"      onAction="#handleLock"      styleClass="icon-button"/>
+        </ToolBar>
+    </top>
+
+    <!-- ── 3-Panel centre ── -->
+    <center>
+        <SplitPane dividerPositions="0.18, 0.45" styleClass="main-split">
+
+            <!-- Left: Sidebar -->
+            <VBox styleClass="sidebar" minWidth="160" maxWidth="240">
+                <TreeView fx:id="categoryTree" VBox.vgrow="ALWAYS" styleClass="category-tree"/>
+            </VBox>
+
+            <!-- Centre: Entry list -->
+            <VBox styleClass="entry-list-pane" minWidth="220">
+                <ListView fx:id="entryList" VBox.vgrow="ALWAYS" styleClass="entry-list"/>
+            </VBox>
+
+            <!-- Right: Entry detail -->
+            <ScrollPane fitToWidth="true" styleClass="detail-scroll" minWidth="320">
+                <VBox fx:id="detailPanel" spacing="12" styleClass="detail-pane">
+                    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                    <!-- Entry header -->
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="detailTitle" styleClass="detail-title" wrapText="true"/>
+                        <Pane HBox.hgrow="ALWAYS"/>
+                        <Button text="Edit"   onAction="#handleEditSelected"   styleClass="secondary-button"/>
+                        <Button text="Delete" onAction="#handleDeleteSelected" styleClass="danger-button"/>
+                    </HBox>
+
+                    <HBox spacing="8">
+                        <Label fx:id="detailType"    styleClass="badge"/>
+                        <Label fx:id="detailUpdated" styleClass="subtle-label"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <!-- Dynamic field rows built by controller -->
+                    <VBox fx:id="detailFields" spacing="8"/>
+
+                    <Separator/>
+
+                    <!-- Password history (LOGIN only) -->
+                    <VBox fx:id="historyBox" spacing="6"/>
+                </VBox>
+            </ScrollPane>
+
+        </SplitPane>
+    </center>
+
+    <!-- ── Status bar ── -->
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding><Insets top="4" right="12" bottom="4" left="12"/></padding>
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.SetupWizardController"
+            styleClass="root-pane">
+
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <VBox alignment="TOP_CENTER" spacing="0">
+
+            <!-- ── STEP 1: Master Password ── -->
+            <VBox fx:id="step1Pane" alignment="CENTER" spacing="16" maxWidth="420">
+                <padding><Insets top="50" bottom="40" left="60" right="60"/></padding>
+
+                <Label text="🔐 Create Your Vault" styleClass="app-title"/>
+                <Label text="Step 1 of 3 – Set a master password" styleClass="subtitle"/>
+
+                <PasswordField fx:id="passwordField" promptText="Master password (min. 8 chars)"
+                               styleClass="input-field"/>
+                <PasswordField fx:id="confirmField" promptText="Confirm master password"
+                               styleClass="input-field"/>
+
+                <VBox spacing="4">
+                    <ProgressBar fx:id="strengthBar" progress="0" maxWidth="Infinity"
+                                 styleClass="strength-bar"/>
+                    <Label fx:id="strengthLabel" text="" styleClass="strength-label"/>
+                </VBox>
+
+                <Label fx:id="step1Error" styleClass="error-label" text="" wrapText="true"/>
+
+                <Button text="Next →" onAction="#handleNext1" defaultButton="true"
+                        styleClass="primary-button" maxWidth="200"/>
+            </VBox>
+
+            <!-- ── STEP 2: TOTP Enrollment ── -->
+            <VBox fx:id="step2Pane" alignment="CENTER" spacing="16" maxWidth="480">
+                <padding><Insets top="50" bottom="40" left="60" right="60"/></padding>
+
+                <Label text="📱 Set Up Google Authenticator" styleClass="app-title"/>
+                <Label text="Step 2 of 3 – Scan the QR code with Google Authenticator"
+                       styleClass="subtitle" wrapText="true" textAlignment="CENTER"/>
+
+                <ImageView fx:id="qrCodeImage" fitWidth="220" fitHeight="220" preserveRatio="true"/>
+
+                <Label fx:id="secretLabel" text="" wrapText="true" maxWidth="380"
+                       styleClass="mono-label"/>
+
+                <Label text="Then enter the 6-digit code to confirm:" styleClass="subtitle"/>
+                <TextField fx:id="totpVerifyField" promptText="000000" maxWidth="160"
+                           styleClass="input-field totp-field"/>
+
+                <Label fx:id="step2Error" styleClass="error-label" text="" wrapText="true"/>
+
+                <Button text="Verify &amp; Continue →" onAction="#handleVerifyTotp"
+                        defaultButton="true" styleClass="primary-button" maxWidth="220"/>
+            </VBox>
+
+            <!-- ── STEP 3: Backup Codes ── -->
+            <VBox fx:id="step3Pane" alignment="CENTER" spacing="16" maxWidth="460">
+                <padding><Insets top="50" bottom="40" left="60" right="60"/></padding>
+
+                <Label text="🔑 Save Your Backup Codes" styleClass="app-title"/>
+                <Label text="Step 3 of 3 – Store these codes somewhere safe. Each can be used once if you lose your phone."
+                       styleClass="subtitle" wrapText="true" textAlignment="CENTER" maxWidth="380"/>
+
+                <TextArea fx:id="codesArea" editable="false" prefRowCount="8"
+                          styleClass="mono-area" wrapText="false"/>
+
+                <CheckBox fx:id="savedCheckBox" text="I have saved my backup codes"
+                          styleClass="check-label"/>
+
+                <Label fx:id="step3Error" styleClass="error-label" text="" wrapText="true"/>
+
+                <Button text="Finish – Open My Vault" onAction="#handleFinish"
+                        defaultButton="true" styleClass="primary-button" maxWidth="240"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

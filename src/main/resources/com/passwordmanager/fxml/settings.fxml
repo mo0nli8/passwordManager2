@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.SettingsController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox styleClass="page-header">
+            <padding><Insets top="20" right="20" bottom="12" left="20"/></padding>
+            <Label text="⚙ Settings" styleClass="app-title"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="settings-tabs">
+
+            <!-- ── Security ── -->
+            <Tab text="Security">
+                <VBox spacing="16">
+                    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+                    <Label text="Change Master Password" styleClass="section-header"/>
+                    <Label text="Current password" styleClass="field-label"/>
+                    <PasswordField fx:id="oldPasswordField" styleClass="input-field" maxWidth="320"/>
+                    <Label text="New password (min. 8 chars)" styleClass="field-label"/>
+                    <PasswordField fx:id="newPasswordField" styleClass="input-field" maxWidth="320"/>
+                    <Label text="Confirm new password" styleClass="field-label"/>
+                    <PasswordField fx:id="confirmPasswordField" styleClass="input-field" maxWidth="320"/>
+                    <Button text="Update Password" onAction="#handleChangeMasterPassword"
+                            styleClass="primary-button" maxWidth="200"/>
+                    <Label fx:id="changePasswordStatus" styleClass="status-label" text="" wrapText="true"/>
+
+                    <Separator/>
+
+                    <Label text="Backup Codes" styleClass="section-header"/>
+                    <Label text="Generate a new set of 8 backup codes (old codes will be invalidated)."
+                           styleClass="subtitle" wrapText="true" maxWidth="380"/>
+                    <Button text="Regenerate Backup Codes" onAction="#handleRegenerateBackupCodes"
+                            styleClass="secondary-button" maxWidth="240"/>
+                </VBox>
+            </Tab>
+
+            <!-- ── Import / Export ── -->
+            <Tab text="Import / Export">
+                <VBox spacing="16">
+                    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+
+                    <Label text="Export" styleClass="section-header"/>
+                    <Label text="Save an encrypted backup of your vault." styleClass="subtitle"/>
+                    <Button text="Export Vault (Encrypted JSON)" onAction="#handleExport"
+                            styleClass="primary-button" maxWidth="260"/>
+                    <Label fx:id="exportStatus" styleClass="status-label" text="" wrapText="true"/>
+
+                    <Separator/>
+
+                    <Label text="Import" styleClass="section-header"/>
+                    <Label text="Import entries from a file. Existing entries will NOT be overwritten."
+                           styleClass="subtitle" wrapText="true" maxWidth="380"/>
+                    <HBox spacing="10" wrap="true">
+                        <Button text="Import from PM Backup"    onAction="#handleImportOwn"         styleClass="secondary-button"/>
+                        <Button text="Import from Bitwarden"    onAction="#handleImportBitwarden"   styleClass="secondary-button"/>
+                        <Button text="Import from KeePass CSV"  onAction="#handleImportKeePass"     styleClass="secondary-button"/>
+                    </HBox>
+                    <Label fx:id="importStatus" styleClass="status-label" text="" wrapText="true"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <padding><Insets top="12" right="20" bottom="16" left="20"/></padding>
+            <Button text="← Back to Vault" onAction="#handleBack" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,211 @@
+/* ────────────────────────────────────────────────
+   Light Theme
+   ──────────────────────────────────────────────── */
+
+/* ── Base ── */
+.root-pane {
+    -fx-background-color: #f5f5f7;
+    -fx-font-family: "Segoe UI", "SF Pro Text", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Typography ── */
+.app-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1d1d1f;
+}
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6e6e73;
+}
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1d1d1f;
+    -fx-padding: 4 0 0 0;
+}
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3a3a3c;
+}
+.subtle-label {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8e8e93;
+}
+.mono-label {
+    -fx-font-family: "Menlo", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: #3a3a3c;
+}
+.error-label {
+    -fx-text-fill: #d70015;
+    -fx-font-size: 12px;
+}
+.status-label {
+    -fx-text-fill: #3a3a3c;
+    -fx-font-size: 12px;
+}
+.badge {
+    -fx-background-color: #e5e5ea;
+    -fx-background-radius: 4;
+    -fx-padding: 2 8 2 8;
+    -fx-font-size: 11px;
+    -fx-text-fill: #3a3a3c;
+}
+
+/* ── Inputs ── */
+.input-field {
+    -fx-background-color: white;
+    -fx-border-color: #d1d1d6;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+}
+.input-field:focused {
+    -fx-border-color: #0071e3;
+    -fx-border-width: 1.5;
+}
+.totp-field {
+    -fx-font-family: "Menlo", "Courier New", monospace;
+    -fx-font-size: 20px;
+    -fx-alignment: CENTER;
+    -fx-letter-spacing: 8px;
+}
+.input-area {
+    -fx-background-color: white;
+    -fx-border-color: #d1d1d6;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+}
+.mono-area {
+    -fx-font-family: "Menlo", "Courier New", monospace;
+    -fx-font-size: 13px;
+    -fx-background-color: #1c1c1e;
+    -fx-text-fill: #30d158;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+/* ── Buttons ── */
+.primary-button {
+    -fx-background-color: #0071e3;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20 8 20;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+.primary-button:hover   { -fx-background-color: #0077ed; }
+.primary-button:pressed { -fx-background-color: #005bbf; }
+.secondary-button {
+    -fx-background-color: #e5e5ea;
+    -fx-text-fill: #1d1d1f;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+.secondary-button:hover { -fx-background-color: #d8d8de; }
+.danger-button {
+    -fx-background-color: #ff3b30;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+.danger-button:hover { -fx-background-color: #ff453a; }
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3a3a3c;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 6 12 6 12;
+}
+.icon-button:hover { -fx-background-color: #e5e5ea; -fx-background-radius: 6; }
+
+/* ── Toolbar ── */
+.main-toolbar {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e5e5ea transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8 12 8 12;
+    -fx-spacing: 8;
+}
+.toolbar-logo { -fx-font-size: 20px; }
+.search-field {
+    -fx-background-color: #f2f2f7;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6 12 6 12;
+}
+
+/* ── 3-Panel ── */
+.main-split { -fx-background-color: #f5f5f7; }
+.sidebar {
+    -fx-background-color: #f2f2f7;
+    -fx-border-color: transparent #e5e5ea transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+.category-tree {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.entry-list-pane { -fx-background-color: white; }
+.entry-list { -fx-background-color: transparent; -fx-border-color: transparent; }
+
+/* ── Entry list cells ── */
+.entry-cell {
+    -fx-padding: 10 12 10 12;
+    -fx-alignment: CENTER_LEFT;
+}
+.entry-icon { -fx-font-size: 18px; }
+.entry-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1d1d1f;
+}
+.entry-sub  { -fx-font-size: 11px; -fx-text-fill: #8e8e93; }
+.entry-star { -fx-font-size: 16px; -fx-text-fill: #ffcc00; -fx-cursor: hand; }
+
+/* ── Detail panel ── */
+.detail-scroll  { -fx-background-color: white; }
+.detail-pane    { -fx-background-color: white; }
+.detail-title   { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1d1d1f; }
+.detail-row     { -fx-alignment: CENTER_LEFT; }
+.detail-key     { -fx-font-weight: bold; -fx-text-fill: #3a3a3c; }
+.detail-value   { -fx-text-fill: #1d1d1f; }
+.detail-tags    { -fx-font-size: 12px; -fx-text-fill: #636366; }
+.history-entry  { -fx-font-family: "Menlo", monospace; -fx-font-size: 12px; -fx-text-fill: #636366; }
+
+/* ── Status bar ── */
+.status-bar {
+    -fx-background-color: #f2f2f7;
+    -fx-border-color: #e5e5ea transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* ── Page header ── */
+.page-header { -fx-background-color: white; -fx-border-color: transparent transparent #e5e5ea transparent; -fx-border-width: 0 0 1 0; }
+
+/* ── Settings ── */
+.settings-tabs { -fx-background-color: #f5f5f7; }
+
+/* ── Password strength bar ── */
+.strength-bar               { -fx-accent: #8e8e93; }
+.strength-bar.strength-weak { -fx-accent: #ff3b30; }
+.strength-bar.strength-fair { -fx-accent: #ff9500; }
+.strength-bar.strength-good { -fx-accent: #34c759; }
+.strength-bar.strength-strong { -fx-accent: #30d158; }
+.strength-label { -fx-font-size: 12px; -fx-text-fill: #3a3a3c; }
+
+/* ── Misc ── */
+.check-label { -fx-font-size: 13px; -fx-text-fill: #1d1d1f; }
+.placeholder-label { -fx-text-fill: #8e8e93; -fx-font-size: 14px; }
+.audit-table { -fx-background-color: white; }
+.link { -fx-text-fill: #0071e3; -fx-font-size: 12px; }

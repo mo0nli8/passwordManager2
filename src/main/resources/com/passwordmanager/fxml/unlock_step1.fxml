@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.UnlockStep1Controller"
+            styleClass="root-pane">
+
+    <VBox alignment="CENTER" spacing="16" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding><Insets top="40" bottom="40" left="60" right="60"/></padding>
+
+        <Label text="🔐 Password Manager" styleClass="app-title"/>
+        <Label text="Enter your master password to unlock your vault" styleClass="subtitle"/>
+
+        <PasswordField fx:id="masterPasswordField" promptText="Master Password"
+                       onAction="#handleUnlock" styleClass="input-field"/>
+
+        <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true" maxWidth="300"/>
+
+        <Button fx:id="unlockButton" text="Unlock" onAction="#handleUnlock"
+                defaultButton="true" styleClass="primary-button" maxWidth="200"/>
+    </VBox>
+</AnchorPane>

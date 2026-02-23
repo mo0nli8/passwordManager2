@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.passwordmanager.ui.controller.AuditController"
+            styleClass="root-pane">
+
+    <top>
+        <VBox spacing="10" styleClass="page-header">
+            <padding><Insets top="20" right="20" bottom="16" left="20"/></padding>
+            <Label text="🛡 Security Audit" styleClass="app-title"/>
+            <Label fx:id="summaryLabel" styleClass="subtitle" wrapText="true"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="auditTable" styleClass="audit-table">
+            <columns>
+                <TableColumn fx:id="titleCol" text="Entry" prefWidth="280"/>
+                <TableColumn fx:id="issueCol" text="Issue"  prefWidth="300"/>
+            </columns>
+            <placeholder><Label text="No issues found – vault looks healthy ✓" styleClass="placeholder-label"/></placeholder>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <padding><Insets top="12" right="20" bottom="16" left="20"/></padding>
+            <Label fx:id="statusLabel" styleClass="subtle-label" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="runButton" text="Re-run Audit" onAction="#runAudit" styleClass="secondary-button"/>
+            <Button text="← Back to Vault"  onAction="#handleClose" styleClass="primary-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>
