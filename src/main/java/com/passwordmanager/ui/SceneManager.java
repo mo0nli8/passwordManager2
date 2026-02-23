@@ -28,8 +28,8 @@ public class SceneManager {
     // ── Scene shortcuts ───────────────────────────────────────────────────────
 
     public static void showSetupWizard()   { show("setup_wizard",  900, 600); }
-    public static void showUnlockStep1()   { show("unlock_step1",  440, 320); }
-    public static void showUnlockStep2()   { show("unlock_step2",  440, 320); }
+    public static void showUnlockStep1()   { show("unlock_step1",  500, 440); }
+    public static void showUnlockStep2()   { show("unlock_step2",  500, 480); }
     public static void showMainVault()     { show("main_vault",    1100, 680); }
     public static void showSettings()      { show("settings",      620, 500); }
     public static void showAudit()         { show("audit",         700, 520); }

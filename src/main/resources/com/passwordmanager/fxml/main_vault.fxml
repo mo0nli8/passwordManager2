@@ -9,17 +9,17 @@
 
     <!-- ── Toolbar ── -->
     <top>
-        <ToolBar styleClass="main-toolbar">
-            <Label text="🔐" styleClass="toolbar-logo"/>
-            <TextField fx:id="searchField" promptText="Search entries…" prefWidth="260"
+        <HBox styleClass="main-toolbar" alignment="CENTER_LEFT" spacing="8">
+            <Label text="Password Manager" styleClass="toolbar-logo"/>
+            <TextField fx:id="searchField" promptText="Search entries…" prefWidth="280"
                        styleClass="search-field"/>
-            <Separator orientation="VERTICAL"/>
+            <Region HBox.hgrow="ALWAYS"/>
             <Button text="+ Add Entry"  onAction="#handleAddEntry"  styleClass="primary-button"/>
-            <Button text="🛡 Audit"     onAction="#handleOpenAudit" styleClass="secondary-button"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="⚙ Settings"  onAction="#handleSettings"  styleClass="icon-button"/>
-            <Button text="🔒 Lock"      onAction="#handleLock"      styleClass="icon-button"/>
-        </ToolBar>
+            <Button text="Audit"        onAction="#handleOpenAudit" styleClass="secondary-button"/>
+            <Separator orientation="VERTICAL" style="-fx-padding: 0 2 0 2;"/>
+            <Button text="Settings"     onAction="#handleSettings"  styleClass="icon-button"/>
+            <Button text="Lock"         onAction="#handleLock"      styleClass="icon-button"/>
+        </HBox>
     </top>
 
     <!-- ── 3-Panel centre ── -->
@@ -38,18 +38,18 @@
 
             <!-- Right: Entry detail -->
             <ScrollPane fitToWidth="true" styleClass="detail-scroll" minWidth="320">
-                <VBox fx:id="detailPanel" spacing="12" styleClass="detail-pane">
+                <VBox fx:id="detailPanel" spacing="10" styleClass="detail-pane">
                     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
                     <!-- Entry header -->
                     <HBox alignment="CENTER_LEFT" spacing="10">
                         <Label fx:id="detailTitle" styleClass="detail-title" wrapText="true"/>
-                        <Pane HBox.hgrow="ALWAYS"/>
+                        <Region HBox.hgrow="ALWAYS"/>
                         <Button text="Edit"   onAction="#handleEditSelected"   styleClass="secondary-button"/>
                         <Button text="Delete" onAction="#handleDeleteSelected" styleClass="danger-button"/>
                     </HBox>
 
-                    <HBox spacing="8">
+                    <HBox spacing="8" alignment="CENTER_LEFT">
                         <Label fx:id="detailType"    styleClass="badge"/>
                         <Label fx:id="detailUpdated" styleClass="subtle-label"/>
                     </HBox>
@@ -57,7 +57,7 @@
                     <Separator/>
 
                     <!-- Dynamic field rows built by controller -->
-                    <VBox fx:id="detailFields" spacing="8"/>
+                    <VBox fx:id="detailFields" spacing="6"/>
 
                     <Separator/>
 
@@ -72,7 +72,6 @@
     <!-- ── Status bar ── -->
     <bottom>
         <HBox styleClass="status-bar">
-            <padding><Insets top="4" right="12" bottom="4" left="12"/></padding>
             <Label fx:id="statusLabel" styleClass="status-label"/>
         </HBox>
     </bottom>

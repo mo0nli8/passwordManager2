@@ -7,34 +7,39 @@
             fx:controller="com.passwordmanager.ui.controller.UnlockStep2Controller"
             styleClass="root-pane">
 
-    <VBox alignment="CENTER" spacing="16" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+    <VBox alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
           AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-        <padding><Insets top="40" bottom="40" left="60" right="60"/></padding>
 
-        <Label text="🔐 Two-Factor Authentication" styleClass="app-title"/>
-        <Label text="Enter the 6-digit code from Google Authenticator" styleClass="subtitle" wrapText="true" maxWidth="320"/>
+        <VBox alignment="CENTER" spacing="16" maxWidth="380" styleClass="card">
+            <padding><Insets top="36" bottom="36" left="40" right="40"/></padding>
 
-        <TextField fx:id="totpField" promptText="000000" maxWidth="160"
-                   styleClass="input-field totp-field"/>
+            <Label text="Two-Factor Authentication" styleClass="app-title"/>
+            <Label text="Enter the 6-digit code from your authenticator app"
+                   styleClass="subtitle" wrapText="true" textAlignment="CENTER" maxWidth="300"/>
 
-        <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true" maxWidth="300"/>
+            <TextField fx:id="totpField" promptText="000 000" maxWidth="160"
+                       styleClass="input-field totp-field"/>
 
-        <HBox alignment="CENTER" spacing="12">
-            <Button text="← Back" onAction="#handleBack" styleClass="secondary-button"/>
-            <Button fx:id="verifyButton" text="Verify" onAction="#handleVerify"
-                    defaultButton="true" styleClass="primary-button"/>
-        </HBox>
+            <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true" maxWidth="300"/>
 
-        <Hyperlink text="Use a backup code instead" onAction="#handleShowBackup" styleClass="link"/>
+            <HBox alignment="CENTER" spacing="12">
+                <Button text="Back" onAction="#handleBack" styleClass="secondary-button"/>
+                <Button fx:id="verifyButton" text="Verify" onAction="#handleVerify"
+                        defaultButton="true" styleClass="primary-button"/>
+            </HBox>
 
-        <!-- Backup code section (hidden initially via controller) -->
-        <VBox fx:id="backupPane" spacing="8" alignment="CENTER">
-            <Separator/>
-            <Label text="Enter a backup code:" styleClass="subtitle"/>
-            <TextField fx:id="backupCodeField" promptText="0000-0000-0000" maxWidth="200"
-                       styleClass="input-field"/>
-            <Label fx:id="backupError" styleClass="error-label" text=""/>
-            <Button text="Use Backup Code" onAction="#handleVerifyBackup" styleClass="secondary-button"/>
+            <Hyperlink text="Use a backup code instead" onAction="#handleShowBackup" styleClass="link"/>
+
+            <!-- Backup code section (hidden initially via controller) -->
+            <VBox fx:id="backupPane" spacing="10" alignment="CENTER">
+                <Separator/>
+                <Label text="Enter a backup code:" styleClass="subtitle"/>
+                <TextField fx:id="backupCodeField" promptText="0000-0000-0000" maxWidth="220"
+                           styleClass="input-field"/>
+                <Label fx:id="backupError" styleClass="error-label" text=""/>
+                <Button text="Use Backup Code" onAction="#handleVerifyBackup" styleClass="secondary-button"/>
+            </VBox>
+
         </VBox>
     </VBox>
 </AnchorPane>

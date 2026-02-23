@@ -7,19 +7,24 @@
             fx:controller="com.passwordmanager.ui.controller.UnlockStep1Controller"
             styleClass="root-pane">
 
-    <VBox alignment="CENTER" spacing="16" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+    <VBox alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
           AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-        <padding><Insets top="40" bottom="40" left="60" right="60"/></padding>
 
-        <Label text="🔐 Password Manager" styleClass="app-title"/>
-        <Label text="Enter your master password to unlock your vault" styleClass="subtitle"/>
+        <VBox alignment="CENTER" spacing="18" maxWidth="360" styleClass="card">
+            <padding><Insets top="40" bottom="40" left="40" right="40"/></padding>
 
-        <PasswordField fx:id="masterPasswordField" promptText="Master Password"
-                       onAction="#handleUnlock" styleClass="input-field"/>
+            <Label text="Password Manager" styleClass="app-title"/>
+            <Label text="Enter your master password to unlock your vault"
+                   styleClass="subtitle" wrapText="true" textAlignment="CENTER" maxWidth="280"/>
 
-        <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true" maxWidth="300"/>
+            <PasswordField fx:id="masterPasswordField" promptText="Master Password"
+                           onAction="#handleUnlock" styleClass="input-field"/>
 
-        <Button fx:id="unlockButton" text="Unlock" onAction="#handleUnlock"
-                defaultButton="true" styleClass="primary-button" maxWidth="200"/>
+            <Label fx:id="errorLabel" styleClass="error-label" text="" wrapText="true" maxWidth="280"/>
+
+            <Button fx:id="unlockButton" text="Unlock" onAction="#handleUnlock"
+                    defaultButton="true" styleClass="primary-button" maxWidth="Infinity"/>
+        </VBox>
+
     </VBox>
 </AnchorPane>
